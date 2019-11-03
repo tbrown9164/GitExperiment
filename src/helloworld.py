@@ -8,7 +8,7 @@ allsonars = [
 
 
 def print_allsonarsheadersonly():
-    print("length of array1",len(allsonars))
+    print("length of array1 change",len(allsonars))
 
     for x in range(len(allsonars)):
         headersnames = allsonars[x].__getitem__("Sonar_hull")
