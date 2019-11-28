@@ -1,6 +1,6 @@
 import csv
 
-def Openandlistacolumn(filename,column_number):
+def OpenandlistAtcolumn(filename,column_number):
     with open(filename) as csv_file:
         csv_reader=csv.reader(csv_file,delimiter=',')
         line_count = 0
@@ -12,7 +12,7 @@ def Openandlistacolumn(filename,column_number):
                 print(row[column_number])
     csv_file.close()
 
-def FindCSVColumnTitle(filename,columnName):
+def FindCSVColumnbyTitle(filename,columnName):
     with open(filename, 'r') as infile:
         reader = csv.DictReader(infile)
         fieldnames = reader.fieldnames
@@ -37,6 +37,20 @@ def ReturnCSVFieldbyRowAndColumnNumber(filename,columnNumber,rownumber):
 
     csv_file.close()
     return row[columnNumber]
+
+#returns a list for the row
+def ReturnCSVRowbyRowNumber(filename,rownumber):
+    with open(filename) as csv_file:
+        csv_reader=csv.reader(csv_file,delimiter=',')
+        line_count: int = 0
+        for row in csv_reader:
+            if line_count == rownumber:      #column names
+                #print ("value at row number",row)
+                break
+            line_count +=1
+
+    csv_file.close()
+    return row
 
 
 
