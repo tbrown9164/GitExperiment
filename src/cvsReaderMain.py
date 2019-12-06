@@ -10,7 +10,7 @@ columnnumber = 1
 
 csvReader.OpenandlistAtcolumn('csvfile.csv',0)
 
-columnnumber=csvReader.FindCSVColumnbyTitle('csvfile.csv',columntitle)
+columnnumber = csvReader.FindCSVColumnbyTitle('csvfile.csv',columntitle)
 
 rowlist = csvReader.ReturnCSVRowbyRowNumber('csvfile.csv',rownumber)
 print("row:",rownumber, "row list: ", rowlist)
