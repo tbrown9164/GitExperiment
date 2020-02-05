@@ -1,7 +1,8 @@
 *** Settings ***
 Documentation  free text documentation here displayed in console at runtime
-Library   Selenium2Library
+#Library   Selenium2Library   don't use  only use SeleniumLibrary
 Suite Setup  GotoSite
+Library   SeleniumLibrary
 #Suite Teardown  Close Browser      #knows to run after tcs are done
 
 *** Variables ***
@@ -20,15 +21,17 @@ Valid Open
     [Tags]  Smoke
     Set Selenium Speed    4
     Set Browser Implicit Wait    5
+    Open Browser   https:///opensource-demo.orangehrmlive.com   ${Browser}
     Input Text       id=txtUsername   ${Userlist}[1]
     Input Password   id=txtPassword    ${PASSWORD}
     Click Button     id=btnLogin      #no variable for this one
     page should contain element   id=spanMessage   "Invalid credentials"   #invalid credential message
     #Open Browser   http://www.thetestingworld.com/testings
     #Goto Site  works here at the tc level
-    Log             Test completed
+    Log To Console            Test completed
 
 *** Keywords ***
-Goto Site   Open Browser  https:///opensource-demo.orangehrmlive.com
+GotoSite
+    Open Browser   https:///opensource-demo.orangehrmlive.com   ${Browser}
 
 

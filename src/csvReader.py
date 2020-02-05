@@ -12,6 +12,7 @@ def OpenandlistAtcolumn(filename,column_number):
                 print(row[column_number])
     csv_file.close()
 
+
 def FindCSVColumnbyTitle(filename,columnName):
     with open(filename, 'r') as infile:
         reader = csv.DictReader(infile)
